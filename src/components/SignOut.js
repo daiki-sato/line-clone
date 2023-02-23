@@ -1,11 +1,17 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { auth } from "../firebase.js";
 import React from "react";
 
 function SignOut() {
   return (
-    <div>
-      <Button onClick={() => auth.signOut()}>サインアウト</Button>
+    <div className="header">
+      <Button
+        onClick={() => auth.signOut()}
+        style={{ color: "white", fontSize: "15px" }}
+      >
+        サインアウト
+      </Button>
+      <Typography>{auth.currentUser.displayName}</Typography>
     </div>
   );
 }
