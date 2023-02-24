@@ -1,4 +1,6 @@
+import { Box, Typography } from "@mui/material";
 import React, { useState, useEffect, useRef } from "react";
+import { format } from "date-fns";
 import { db, auth } from "../firebase.js";
 import SendMessage from "./SendMessage.js";
 import SignOut from "./SignOut";
@@ -17,8 +19,15 @@ function Line() {
     <div>
       <SignOut />
       <div className="msgs">
-        {messages.map(({ id, text, photoURL, uid, imageUrl }) => (
-          <div>
+        {messages.map(({ id, text, photoURL, uid, imageUrl, createdAt }) => (
+          <Box>
+            {createdAt && (
+              <Typography
+                align={uid === auth.currentUser.uid ? "right" : "left"}
+              >
+                {format(createdAt.toDate(), "yyyy年MM月dd日")}
+              </Typography>
+            )}
             <div
               key={id}
               className={`msg ${
@@ -29,7 +38,7 @@ function Line() {
               {text && <p>{text}</p>}
               {imageUrl && <img src={imageUrl} alt="" />}
             </div>
-          </div>
+          </Box>
         ))}
       </div>
       <SendMessage scroll={scroll} />
