@@ -41,7 +41,7 @@ function SendMessage() {
             onChange={(e) => setMessage(e.target.value)}
             value={message}
           />
-          <SendIcon />
+          <SendIcon color="primary" fontSize="large" />
         </div>
       </form>
     </div>
