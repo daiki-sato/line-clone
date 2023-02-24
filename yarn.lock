@@ -1674,6 +1674,16 @@
     node-fetch "2.6.7"
     tslib "^2.1.0"
 
+"@firebase/storage@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@firebase/storage/-/storage-0.11.1.tgz#602ddb7bce77077800a46bcdfa76f36d7a265c51"
+  integrity sha512-Xv8EG2j52ugF2xayBz26U9J0VBXHXPMVxSN+ph3R3BSoHxvMLaPu+qUYKHavSt+zbcgPH2GyBhrCdJK6SaDFPA==
+  dependencies:
+    "@firebase/component" "0.6.3"
+    "@firebase/util" "1.9.2"
+    node-fetch "2.6.7"
+    tslib "^2.1.0"
+
 "@firebase/util@1.9.2":
   version "1.9.2"
   resolved "https://registry.npmjs.org/@firebase/util/-/util-1.9.2.tgz"

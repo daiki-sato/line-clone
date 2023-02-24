@@ -17,7 +17,7 @@ function Line() {
     <div>
       <SignOut />
       <div className="msgs">
-        {messages.map(({ id, text, photoURL, uid }) => (
+        {messages.map(({ id, text, photoURL, uid, imageUrl }) => (
           <div>
             <div
               key={id}
@@ -26,7 +26,8 @@ function Line() {
               }`}
             >
               <img src={photoURL} alt="" />
-              <p>{text}</p>
+              {text && <p>{text}</p>}
+              {imageUrl && <img src={imageUrl} alt="" />}
             </div>
           </div>
         ))}
