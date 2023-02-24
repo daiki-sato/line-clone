@@ -9,7 +9,6 @@ function Line() {
   useEffect(() => {
     db.collection("messages")
       .orderBy("createdAt")
-      .limit(50)
       .onSnapshot((snapshot) => {
         setMessages(snapshot.docs.map((doc) => doc.data()));
       });
