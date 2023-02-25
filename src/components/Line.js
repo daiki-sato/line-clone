@@ -1,13 +1,16 @@
 import { Box, Typography } from "@mui/material";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { format } from "date-fns";
 import { db, auth } from "../firebase.js";
 import SendMessage from "./SendMessage.js";
 import SignOut from "./SignOut";
 
 function Line() {
-  const scroll = useRef();
+  const scroll = useRef(null);
   const [messages, setMessages] = useState([]);
+  useLayoutEffect(() => {
+    scroll?.current?.scrollIntoView();
+  });
   useEffect(() => {
     db.collection("messages")
       .orderBy("createdAt")
@@ -41,7 +44,7 @@ function Line() {
           </Box>
         ))}
       </div>
-      <SendMessage scroll={scroll} />
+      <SendMessage />
       <div ref={scroll}></div>
     </div>
   );
